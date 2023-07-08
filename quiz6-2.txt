@@ -1,0 +1,16 @@
+import sys
+
+value = int(sys.argv[1])
+if value < 0:
+    print("Please enter a number bigger than zero")
+elif value == 1:
+    print("*") 
+else:    
+    star_list=[star*"*" for star in range(value*2) if star%2==1]
+    reverse_star_list = star_list[len(star_list)-2::-1]
+    for i in range(len(star_list)):
+        space = len(star_list) - i
+        print(space*" "+star_list[i])
+    for i in range(len(reverse_star_list)):
+        space = int(i)+2
+        print(space*" "+reverse_star_list[i])

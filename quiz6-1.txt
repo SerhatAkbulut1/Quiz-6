@@ -1,0 +1,26 @@
+import sys
+
+value = int(sys.argv[1])
+if value < 0:
+  print("Please enter a number bigger than zero")
+else:   
+  center_number = int(value)
+  def bottom_diamond(value):
+      if int(value) < 1:
+          return ""
+      else:
+          if value%2 == 1:
+            star_shape = value*"*" 
+            print(star_shape.center(center_number*2)) 
+          return bottom_diamond(value-1)
+  def top_diamond(value):
+      if int(value) < 3: #I dont want to add last row because it will be printed 2 times. So I used <3.
+        return ""
+      else:
+        if value%2 == 1:
+            star_shape = int(center_number*2 - value)*"*" 
+            print(star_shape.center(center_number*2)) 
+        return top_diamond(value-1)
+  print(top_diamond(value*2),end="") # I used end=" " because I don't want to see 1 space row.(Hocam kendimi tam anlatamadım ondan dolayı türkçe yazıyorum. 1 tane fazladan boşluk sıra oluyordu bunu engellemek amaçlı end=" " kullandım.)
+  print(bottom_diamond(value*2))       
+
